@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/update_medicine_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.vibhanshu.medisim.UpdateMedicineActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="visible"
+        android:id="@+id/get_medi_name_to_update">
+
+        <SearchView
+            android:id="@+id/update_query"
+            style="@style/searchViewBorder"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:focusedByDefault="true"
+            android:iconifiedByDefault="false"
+            android:inputType="textCapSentences"
+            android:queryBackground="@android:color/transparent"
+            android:queryHint="Enter Medicine Name"
+            android:textAlignment="center">
+
+            <requestFocus />
+        </SearchView>
+
+        <Button
+            android:id="@+id/search_for_update"
+            style="@style/buttonPrimary"
+            android:text="Search for update" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorSearch" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/search_progress_bar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminate="true"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/update_medicine_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/update_medicine_text"
+                style="@style/defaultFont"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="5"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:singleLine="false" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/select_update_medicine_button"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@color/transparentColor"
+                    android:contentDescription="Update Icon"
+                    android:src="@drawable/ic_edit" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/get_medi_data_to_update">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Name" />
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":" />
+
+                <EditText
+                    android:id="@+id/update_medi_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="Medicine Name"
+                    android:inputType="textCapSentences" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Generic" />
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":" />
+
+                <EditText
+                    android:id="@+id/update_medi_generic"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="Generic Name"
+                    android:inputType="textCapSentences" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ICD Code" />
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":" />
+
+                <EditText
+                    android:id="@+id/update_medi_icd_code"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="ICD Code"
+                    android:inputType="textCapSentences" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Therapeutic Classification" />
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":" />
+
+                <EditText
+                    android:id="@+id/update_medi_t_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="Therapeutic Classification"
+                    android:inputType="textCapSentences" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Type" />
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":" />
+
+                <EditText
+                    android:id="@+id/update_medi_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="eg. Tablet, Syrup"
+                    android:inputType="textCapSentences" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Company" />
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":" />
+
+                <EditText
+                    android:id="@+id/update_medi_company"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="Manufacturer Name"
+                    android:inputType="textCapSentences" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Price (₹)" />
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":" />
+
+                <EditText
+                    android:id="@+id/update_medi_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="MRP"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Unit (Power)" />
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":" />
+
+                <EditText
+                    android:id="@+id/update_medi_unit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="mg"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Quantity" />
+
+                <TextView
+                    style="@style/defaultFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":" />
+
+                <EditText
+                    android:id="@+id/update_medi_quantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="Packing Size"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/update_medicine_button"
+                    style="@style/buttonPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Update" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/update_medi_progress_bar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+

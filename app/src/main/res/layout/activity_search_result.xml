@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context="com.example.vibhanshu.medisim.SearchResultActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Generic Name: "
+                android:textColor="@android:color/black"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/result_generic_name"
+                style="@style/resultGenericName"
+                tools:text="Generinc Name will be fetched here" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorSearch" />
+
+        <ListView
+            android:id="@+id/search_result_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ListView>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/not_found_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="Not Found Image"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_not_found"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/not_found_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Such Result Found"
+        android:textSize="26sp"
+        android:textColor="@android:color/black"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/not_found_image"
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/search_progress_bar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

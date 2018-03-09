@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.vibhanshu.medisim.HomeActivity"
+    tools:showIn="@layout/app_bar_home">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:id="@+id/search_layout">
+
+        <SearchView
+            android:id="@+id/search_query"
+            style="@style/searchViewBorder"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:focusedByDefault="true"
+            android:iconifiedByDefault="false"
+            android:inputType="textCapSentences"
+            android:queryBackground="@android:color/transparent"
+            android:queryHint="Enter Your query"
+            android:textAlignment="center">
+
+            <requestFocus />
+
+        </SearchView>
+
+        <RadioGroup
+            android:id="@+id/search_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/search_by_name"
+                style="@style/selectSearchCatagory"
+                android:checked="true"
+                android:text="Search By Name" />
+
+            <RadioButton
+                android:id="@+id/search_by_generic"
+                style="@style/selectSearchCatagory"
+                android:text="Search By Generic" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/search_button"
+            style="@style/buttonPrimary"
+            android:text="Search" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="bottom"
+                android:text="Version 1.0"
+                android:textAlignment="center" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

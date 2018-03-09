@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "336074072083",
+    "firebase_url": "https://medisim-vkr09.firebaseio.com",
+    "project_id": "medisim-vkr09",
+    "storage_bucket": "medisim-vkr09.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336074072083:android:cccd53b3d2bc5ae8",
+        "android_client_info": {
+          "package_name": "com.example.vibhanshu.medisim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336074072083-drau0trft2g232mtrp8vrb7v1tq4c6tp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vibhanshu.medisim",
+            "certificate_hash": "1859c24d7494579978ecfd73be6b8705f9599a4a"
+          }
+        },
+        {
+          "client_id": "336074072083-4knl0pmu617a50fno6fee5kk93vf35e2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU3qXeWL6o9V7qqpUHgNzD7JgwMtXUIhE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336074072083-4knl0pmu617a50fno6fee5kk93vf35e2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
