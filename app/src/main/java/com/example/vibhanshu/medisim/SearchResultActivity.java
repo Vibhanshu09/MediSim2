@@ -35,8 +35,8 @@ public class SearchResultActivity extends AppCompatActivity {
     ImageView notFoundImage;
     TextView notFoundText;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference mediBrandReference = database.getReference().child("medi_test").child("brand");
-    DatabaseReference mediGenericReference = database.getReference().child("medi_test").child("generic");
+    DatabaseReference mediBrandReference = database.getReference().child("medisim").child("brand");
+    DatabaseReference mediGenericReference = database.getReference().child("medisim").child("generic");
     Query dataFindQuery;
 
     //TextView of medicine Details Dialog

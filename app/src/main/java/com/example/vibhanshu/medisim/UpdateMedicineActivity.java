@@ -56,8 +56,8 @@ public class UpdateMedicineActivity extends AppCompatActivity {
 
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference mediBrandRef = database.getReference().child("medi_test").child("brand");
-    DatabaseReference updateFinalValueRef = database.getReference().child("medi_test");
+    DatabaseReference mediBrandRef = database.getReference().child("medisim").child("brand");
+    DatabaseReference updateFinalValueRef = database.getReference().child("medisim");
     DatabaseReference mediGenericRef;
 
     @Override

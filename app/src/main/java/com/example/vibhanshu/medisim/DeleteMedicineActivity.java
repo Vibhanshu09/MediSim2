@@ -36,7 +36,7 @@ public class DeleteMedicineActivity extends AppCompatActivity {
     AlertDialog.Builder confirmationDialog;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference mediBrandRef = database.getReference().child("medi_test").child("brand");
+    DatabaseReference mediBrandRef = database.getReference().child("medisim").child("brand");
     DatabaseReference mediGenericRef;
 
     @Override
@@ -93,7 +93,7 @@ public class DeleteMedicineActivity extends AppCompatActivity {
                             if (dataSnapshot.exists()) {
                                 MediBrand tempp = dataSnapshot.getValue(MediBrand.class);
                                 //Toast.makeText(DeleteMedicineActivity.this,tempp.getGeneric(),Toast.LENGTH_SHORT).show();
-                                mediGenericRef = FirebaseDatabase.getInstance().getReference().child("medi_test");
+                                mediGenericRef = FirebaseDatabase.getInstance().getReference().child("medisim");
                                 mediGenericRef = mediGenericRef.child("generic").child(tempp.getGeneric()).child("brand").child(mediName);
 
                                 deleteMedicineName.setText(UsableMethods.setFirstLetterCapital(mediName));

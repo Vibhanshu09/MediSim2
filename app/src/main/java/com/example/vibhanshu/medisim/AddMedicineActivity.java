@@ -27,22 +27,20 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AddMedicineActivity extends AppCompatActivity {
 
-    private FirebaseDatabase database;
-    private DatabaseReference myBrandRef, myGenericRef, myGenericRefForBrandName;
-    private MediBrand mMediDetail;
-    private MediGeneric mMediGeneric;
-
     //Declaring Variables for Layout id, EditText id, Button id and ProgressBar id.
     RelativeLayout layout;
     EditText mMedicineNameEditText, mGenericNameEditText, mTypeEditText, mICDCodeEditText;
     EditText mCompanyEditText, mPriceEditText, mUnitEditText, mQuantityEditText, mTherapeuticClassification;
     Button mAddMedicineButton;
     ProgressBar mAddMediProgressBar;
-
     //Declare variable for storing values from Edit text fields.
     String name, genericName, icdCode, therapeuticClassification, company, type;
     double price;
     int unit, quantity;
+    private FirebaseDatabase database;
+    private DatabaseReference myBrandRef, myGenericRef, myGenericRefForBrandName;
+    private MediBrand mMediDetail;
+    private MediGeneric mMediGeneric;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +62,7 @@ public class AddMedicineActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
 
                 if (!hasFocus) {
-                    myGenericRef = database.getReference("medi_test").child("generic")
+                    myGenericRef = database.getReference("medisim").child("generic")
                             .child(mGenericNameEditText.getText().toString().trim().toLowerCase());
 
                     //Checking if particular Generic name existed, if exist then add only mediBrand, else new entry
@@ -117,7 +115,7 @@ public class AddMedicineActivity extends AppCompatActivity {
                         mMediGeneric = new MediGeneric(genericName, icdCode, therapeuticClassification, name);
 
                         //Taking Reference of medibrand from database
-                        myBrandRef = database.getReference("medi_test").child("brand")
+                        myBrandRef = database.getReference("medisim").child("brand")
                                 .child(name);
 
                         //Checking if data is previously existed in database, if not then add new one
@@ -133,7 +131,7 @@ public class AddMedicineActivity extends AppCompatActivity {
                                     myBrandRef.setValue(mMediDetail.mapMediBrand());
 
                                     //Taking Reference of generic from database
-                                    myGenericRef = database.getReference("medi_test").child("generic")
+                                    myGenericRef = database.getReference("medisim").child("generic")
                                             .child(genericName);
 
                                     //Checking if particular Generic name existed, if exist then add only mediBrand, else new entry
