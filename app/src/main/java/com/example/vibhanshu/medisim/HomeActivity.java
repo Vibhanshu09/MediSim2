@@ -291,5 +291,9 @@ public class HomeActivity extends AppCompatActivity
         if (emailIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(Intent.createChooser(emailIntent, "Send Feedback using..."));
         }
+        else
+        {
+            Toast.makeText(HomeActivity.this,"No Mailing Application Found",Toast.LENGTH_SHORT).show();
+        }
     }
 }
