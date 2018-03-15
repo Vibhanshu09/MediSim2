@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +38,7 @@ public class UpdateMedicineActivity extends AppCompatActivity {
     String mediName;
     Button search, update;
     LinearLayout layout, mainLayoutForSnackBar, getMediNameToUpdate;
-    RelativeLayout getMediDataToUpdate;
+    ScrollView getMediDataToUpdate;
     ProgressBar searchProgressBar, updateProgressBar;
     TextView updateMedicineName;
     ImageButton updateImageButton;
@@ -184,7 +185,7 @@ public class UpdateMedicineActivity extends AppCompatActivity {
 
         mainLayoutForSnackBar = (LinearLayout) findViewById(R.id.update_medicine_main_layout);
         getMediNameToUpdate = (LinearLayout) findViewById(R.id.get_medi_name_to_update);
-        getMediDataToUpdate = (RelativeLayout) findViewById(R.id.get_medi_data_to_update);
+        getMediDataToUpdate = (ScrollView) findViewById(R.id.get_medi_data_to_update);
 
         updateQuery = (SearchView) findViewById(R.id.update_query);
 

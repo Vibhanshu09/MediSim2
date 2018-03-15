@@ -17,10 +17,11 @@ public class MediBrand {
     private double price;
     private int quantity;
     private int unit;
+    private String cities;
 
     public MediBrand(){} //Default constructor for DatabaseSnapshot.getValue(MediBrand.class);
 
-    public MediBrand(String name,String company,String genericName, String type, double price, int quantity, int unit){
+    public MediBrand(String name,String company,String genericName, String type, double price, int quantity, int unit,String cities){
         this.name = name;
         this.company = company;
         this.generic = genericName;
@@ -28,6 +29,7 @@ public class MediBrand {
         this.price = price;
         this.quantity = quantity;
         this.unit = unit;
+        this.cities = cities;
     }
 
     public void setCompany(String company){this.company = company;}
@@ -35,6 +37,7 @@ public class MediBrand {
     public void setPrice(double price){this.price = price;}
     public void setQuantity(int quantity){this.quantity = quantity;}
     public void setUnit(int unit){this.unit = unit;}
+    public void setCities(String cities){this.cities = cities;}
 
     public String getName(){return name;}
     public String getCompany(){return  company;}
@@ -43,6 +46,7 @@ public class MediBrand {
     public double getPrice(){return price;}
     public int getQuantity(){return quantity;}
     public int getUnit(){return unit;}
+    public String getCities(){return cities;}
 
     @Exclude
     public HashMap<String, Object> mapMediBrand(){
@@ -54,6 +58,7 @@ public class MediBrand {
         result.put("price",price);
         result.put("quantity",quantity);
         result.put("unit",unit);
+        result.put("cities",cities);
         return result;
     }
 
