@@ -31,12 +31,13 @@ public class AddMedicineActivity extends AppCompatActivity {
     RelativeLayout layout;
     EditText mMedicineNameEditText, mGenericNameEditText, mTypeEditText, mICDCodeEditText;
     EditText mCompanyEditText, mPriceEditText, mUnitEditText, mQuantityEditText, mTherapeuticClassification;
+    EditText mCityEditText;
     Button mAddMedicineButton;
     ProgressBar mAddMediProgressBar;
     //Declare variable for storing values from Edit text fields.
-    String name, genericName, icdCode, therapeuticClassification, company, type;
+    String name, genericName, icdCode, therapeuticClassification, company, type, cities;
     double price;
-    int unit, quantity;
+    String unit, quantity;
     private FirebaseDatabase database;
     private DatabaseReference myBrandRef, myGenericRef, myGenericRefForBrandName;
     private MediBrand mMediDetail;
@@ -109,7 +110,7 @@ public class AddMedicineActivity extends AppCompatActivity {
                     if (getValuesFromEditText()) { //All fields are field
 
                         //Initializing MediBrand with inserted data
-                        mMediDetail = new MediBrand(name, company, genericName, type, price, quantity, unit);
+                        mMediDetail = new MediBrand(name, company, genericName, type, price, quantity, unit, cities);
 
                         //Initializing MediGeneric with inserted data
                         mMediGeneric = new MediGeneric(genericName, icdCode, therapeuticClassification, name);
@@ -185,6 +186,7 @@ public class AddMedicineActivity extends AppCompatActivity {
         mPriceEditText = findViewById(R.id.add_medi_price);
         mUnitEditText = findViewById(R.id.add_medi_unit);
         mQuantityEditText = findViewById(R.id.add_medi_quantity);
+        mCityEditText = findViewById(R.id.add_medi_cities);
 
         mAddMedicineButton = findViewById(R.id.add_new_medicine);
 
@@ -247,14 +249,21 @@ public class AddMedicineActivity extends AppCompatActivity {
             mUnitEditText.setError("Field can't be empty");
             return false;
         } else {
-            unit = Integer.parseInt(mUnitEditText.getText().toString().trim());
+            unit = mUnitEditText.getText().toString().trim().toLowerCase();
         }
         //Checking quantity field
         if (mQuantityEditText.getText().toString().trim().isEmpty()) {
             mQuantityEditText.setError("Field can't be empty");
             return false;
         } else {
-            quantity = Integer.parseInt(mQuantityEditText.getText().toString().trim());
+            quantity = mQuantityEditText.getText().toString().trim().toLowerCase();
+        }
+        //Checking City field
+        if(mCityEditText.getText().toString().trim().isEmpty()){
+            mCityEditText.setError("Field can't be empty");
+            return false;
+        } else {
+            cities = mCityEditText.getText().toString().trim().toLowerCase();
         }
 
         return true;
@@ -287,6 +296,7 @@ public class AddMedicineActivity extends AppCompatActivity {
         mPriceEditText.setText("");
         mUnitEditText.setText("");
         mQuantityEditText.setText("");
+        mCityEditText.setText("");
         mMedicineNameEditText.requestFocus();
     }
 }
