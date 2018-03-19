@@ -44,9 +44,7 @@ public class UpdateMedicineActivity extends AppCompatActivity {
     ImageButton updateImageButton;
 
     //Declare variable for storing values from Edit text fields.
-    String name, genericName, icdCode, therapeuticClassification, company, type;
-    double price;
-    int unit, quantity;
+    String icdCode, therapeuticClassification;
 
     MediBrand tempBrandData;
     MediGeneric tempGenericData;
@@ -54,6 +52,7 @@ public class UpdateMedicineActivity extends AppCompatActivity {
     //Update EditText field variable
     EditText mMedicineNameEditText, mGenericNameEditText, mTypeEditText, mICDCodeEditText;
     EditText mCompanyEditText, mPriceEditText, mUnitEditText, mQuantityEditText, mTherapeuticClassification;
+    EditText mCityEditText;
 
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -208,6 +207,7 @@ public class UpdateMedicineActivity extends AppCompatActivity {
         mPriceEditText = (EditText) findViewById(R.id.update_medi_price);
         mUnitEditText = (EditText) findViewById(R.id.update_medi_unit);
         mQuantityEditText = (EditText) findViewById(R.id.update_medi_quantity);
+        mCityEditText = (EditText) findViewById(R.id.update_medi_cities);
 
         updateImageButton = (ImageButton) findViewById(R.id.select_update_medicine_button);
 
@@ -227,12 +227,12 @@ public class UpdateMedicineActivity extends AppCompatActivity {
         mPriceEditText.setText(String.valueOf(tempBrandData.getPrice()));
         mUnitEditText.setText(String.valueOf(tempBrandData.getUnit()));
         mQuantityEditText.setText(String.valueOf(tempBrandData.getQuantity()));
+        mCityEditText.setText(String.valueOf(tempBrandData.getCities()));
     }
 
     private boolean getValuesFromEditText() {
 
         //Checking ICD Code
-        //TODO:-----------------------------------------------------------------------------------------------------------
         if (mICDCodeEditText.getText().toString().trim().isEmpty()) {
             mICDCodeEditText.setError("Field can't be empty");
             return false;
@@ -272,14 +272,21 @@ public class UpdateMedicineActivity extends AppCompatActivity {
             mUnitEditText.setError("Field can't be empty");
             return false;
         } else {
-            tempBrandData.setUnit(Integer.parseInt(mUnitEditText.getText().toString().trim()));
+            tempBrandData.setUnit(String.valueOf(mUnitEditText.getText().toString().trim()));
         }
         //Checking quantity field
         if (mQuantityEditText.getText().toString().trim().isEmpty()) {
             mQuantityEditText.setError("Field can't be empty");
             return false;
         } else {
-            tempBrandData.setQuantity(Integer.parseInt(mQuantityEditText.getText().toString().trim()));
+            tempBrandData.setQuantity(String.valueOf(mQuantityEditText.getText().toString().trim()));
+        }
+        //Checking city field
+        if(mCityEditText.getText().toString().trim().isEmpty()){
+            mCityEditText.setError("Field can't be empty");
+            return false;
+        } else {
+            tempBrandData.setCities(String.valueOf(mCityEditText.getText().toString().trim().toLowerCase()));
         }
 
         return true;
