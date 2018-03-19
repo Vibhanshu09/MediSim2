@@ -52,7 +52,7 @@ public class UpdateMedicineActivity extends AppCompatActivity {
     //Update EditText field variable
     EditText mMedicineNameEditText, mGenericNameEditText, mTypeEditText, mICDCodeEditText;
     EditText mCompanyEditText, mPriceEditText, mUnitEditText, mQuantityEditText, mTherapeuticClassification;
-    EditText mCityEditText;
+    EditText mStateEditText;
 
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -207,7 +207,7 @@ public class UpdateMedicineActivity extends AppCompatActivity {
         mPriceEditText = (EditText) findViewById(R.id.update_medi_price);
         mUnitEditText = (EditText) findViewById(R.id.update_medi_unit);
         mQuantityEditText = (EditText) findViewById(R.id.update_medi_quantity);
-        mCityEditText = (EditText) findViewById(R.id.update_medi_cities);
+        mStateEditText = (EditText) findViewById(R.id.update_medi_state);
 
         updateImageButton = (ImageButton) findViewById(R.id.select_update_medicine_button);
 
@@ -227,7 +227,7 @@ public class UpdateMedicineActivity extends AppCompatActivity {
         mPriceEditText.setText(String.valueOf(tempBrandData.getPrice()));
         mUnitEditText.setText(String.valueOf(tempBrandData.getUnit()));
         mQuantityEditText.setText(String.valueOf(tempBrandData.getQuantity()));
-        mCityEditText.setText(String.valueOf(tempBrandData.getCities()));
+        mStateEditText.setText(String.valueOf(tempBrandData.getState()));
     }
 
     private boolean getValuesFromEditText() {
@@ -281,12 +281,12 @@ public class UpdateMedicineActivity extends AppCompatActivity {
         } else {
             tempBrandData.setQuantity(String.valueOf(mQuantityEditText.getText().toString().trim()));
         }
-        //Checking city field
-        if(mCityEditText.getText().toString().trim().isEmpty()){
-            mCityEditText.setError("Field can't be empty");
+        //Checking state field
+        if(mStateEditText.getText().toString().trim().isEmpty()){
+            mStateEditText.setError("Field can't be empty");
             return false;
         } else {
-            tempBrandData.setCities(String.valueOf(mCityEditText.getText().toString().trim().toLowerCase()));
+            tempBrandData.setState(String.valueOf(mStateEditText.getText().toString().trim().toLowerCase()));
         }
 
         return true;

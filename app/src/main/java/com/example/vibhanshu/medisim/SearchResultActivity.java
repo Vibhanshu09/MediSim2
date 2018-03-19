@@ -40,7 +40,7 @@ public class SearchResultActivity extends AppCompatActivity {
     Query dataFindQuery;
 
     //TextView of medicine Details Dialog
-    TextView name, generic, icd, tc, type, company, price, unit, quantity, cities;
+    TextView name, generic, icd, tc, type, company, price, unit, quantity, state;
     Button mediDetailDialogClose;
     MediBrand resultMediBrand;
     MediGeneric resultMediGeneric;
@@ -217,7 +217,7 @@ public class SearchResultActivity extends AppCompatActivity {
                 price.setText(NumberFormat.getCurrencyInstance().format(resultMediBrand.getPrice()));
                 unit.setText(String.valueOf(resultMediBrand.getUnit()));
                 quantity.setText(String.valueOf(resultMediBrand.getQuantity()));
-                cities.setText(String.valueOf(resultMediBrand.getCities()));
+                state.setText(String.valueOf(resultMediBrand.getState() + "\n"));
                 mediGenericReference.child(resultMediBrand.getGeneric()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -250,7 +250,7 @@ public class SearchResultActivity extends AppCompatActivity {
         price = (TextView) resultDialog.findViewById(R.id.price_of_medicine);
         unit = (TextView) resultDialog.findViewById(R.id.unit_of_medicine);
         quantity = (TextView) resultDialog.findViewById(R.id.quantity_of_medicine);
-        cities = (TextView) resultDialog.findViewById(R.id.cities_of_medicine);
+        state = (TextView) resultDialog.findViewById(R.id.state_of_medicine);
 
         mediDetailDialogClose = (Button) resultDialog.findViewById(R.id.medi_detail_done);
 
