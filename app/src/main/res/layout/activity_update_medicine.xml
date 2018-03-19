@@ -328,7 +328,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:hint="mg"
-                        android:inputType="number" />
+                        android:inputType="textAutoComplete" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -355,7 +355,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:hint="Packing Size"
-                        android:inputType="number" />
+                        android:inputType="textAutoComplete" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
