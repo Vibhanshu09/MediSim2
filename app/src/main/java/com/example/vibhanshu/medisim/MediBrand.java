@@ -15,13 +15,13 @@ public class MediBrand {
     private String generic;
     private String type;
     private double price;
-    private int quantity;
-    private int unit;
+    private String quantity;
+    private String unit;
     private String cities;
 
     public MediBrand(){} //Default constructor for DatabaseSnapshot.getValue(MediBrand.class);
 
-    public MediBrand(String name,String company,String genericName, String type, double price, int quantity, int unit,String cities){
+    public MediBrand(String name,String company,String genericName, String type, double price, String quantity, String unit,String cities){
         this.name = name;
         this.company = company;
         this.generic = genericName;
@@ -35,8 +35,8 @@ public class MediBrand {
     public void setCompany(String company){this.company = company;}
     public void setType(String type){this.type = type;}
     public void setPrice(double price){this.price = price;}
-    public void setQuantity(int quantity){this.quantity = quantity;}
-    public void setUnit(int unit){this.unit = unit;}
+    public void setQuantity(String quantity){this.quantity = quantity;}
+    public void setUnit(String unit){this.unit = unit;}
     public void setCities(String cities){this.cities = cities;}
 
     public String getName(){return name;}
@@ -44,8 +44,8 @@ public class MediBrand {
     public String getGeneric(){return generic;}
     public String getType(){return type;}
     public double getPrice(){return price;}
-    public int getQuantity(){return quantity;}
-    public int getUnit(){return unit;}
+    public String getQuantity(){return quantity;}
+    public String getUnit(){return unit;}
     public String getCities(){return cities;}
 
     @Exclude
