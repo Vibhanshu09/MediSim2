@@ -238,7 +238,6 @@ public class HomeActivity extends AppCompatActivity
                 startActivity(new Intent(HomeActivity.this, DeleteMedicineActivity.class));
                 break;
             case R.id.nav_feedback:
-                //TODO: start activity
                 sendFeedback();
                 break;
             case R.id.nav_about:
